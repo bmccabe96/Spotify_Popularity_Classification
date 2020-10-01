@@ -18,7 +18,7 @@ After clearning and organizing the data, the first thing I wanted to check was c
 
 A clear class imbalance. This will need to be addressed in the modeling notebook. The next chart of note I would like to share from the EDA notebook is one detailing the correlation better the predictor features and the target variable. This chart shows the features with the largest correlation. Note, that because of class imbalance and the fact that models don't go strictly off correlation that this should not be read as the ground truth, but instead an early insight:
 
-![Image](pics/correlation_w_popularity.png?raw=true)
+![Image](pics/correlation_w_popularity.png?raw=true) 
 
 #  Modeling
 
@@ -63,7 +63,7 @@ I grabbed data from one of Spotify's release radar playlists, and then segmented
 - From Spotify's API page, popularity has a unique algorithm applied to it that is time sensitive. Essentially, it is a *function of amount of plays compared to how recent those plays were.*
 - Because of this, songs tend to lose popularity with time (unless they truly are a banger...but even then, they would still lose popularity!)
 - This also explains the difference in class imbalance for my large dataset initially gathered as compared to the release radar set. (As a reminder, the original set had twice as many unpopular songs, whereas the release radar set had twice as many popular songs!?) Items on the release radar set are very, very new, and so songs that might not even be that good can have an inflated popularity score since the plays are so recent. For all we know, they could fall out of popularity within weeks! 
-- **Recommendation to Rap Artists**: Putting the issue of time aside, I recommend tuning your songs to the feature importance and correlation shown above. (1) Make sure I can dance to your song. (2) Do not let profane words get in the way of your rap, people seem to enjoy that grit. (3) From the random foreet model, it appears energy is a huge factor in determining popularity. Try tweaking the energy level of your song and testing the results against the model -- it is likely to have a large effect on popularity.
+- **Recommendation to Rap Artists**: Putting the issue of time aside, I recommend tuning your songs to the feature importance and correlation shown above. (1) Make sure I can dance to your song. (2) Do not let profane words get in the way of your rap, people seem to enjoy the grit. (3) From the random foreet model, it appears energy is a huge factor in determining popularity. Try tweaking the energy level of your song and testing the results against the model -- it is likely to have a large effect on popularity.
 
 #  Next Steps
 
