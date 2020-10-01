@@ -1,6 +1,6 @@
 # Spotify_Popularity_Classification
 
-This project seeks to classify rap songs as either popular or not based on various features obtained from Spotify's API. The project aims to create a model that prioritizes predictive performance over interpretable performance. 
+This project seeks to classify rap songs as either popular or not based on various features obtained from Spotify's API. Note that "popular" is derived from Spotufy's "popularity" attribute, which is a value from 0-100. I decided to make the cutoff as follows: above 50 == popular, below 50 == not popular. The project aims to create a model that prioritizes predictive performance over interpretable performance. 
 
 **Model Use Case**: An artist creates a new song. Using the model, the artist can see the prediction on whether or not it will be popular. If yes, the artist can spend the time and money promoting the song, spending money on ads, etc. If no, then the artist knows to not waste time and get back to the drawing board (studio).
 
@@ -52,14 +52,24 @@ I grabbed data from one of Spotify's release radar playlists, and then segmented
 
 ![Image](pics/release_radar_pop_count.png?raw=true)
 
-**Important** -- Note the class imbalance here is the opposite from my original dataset. This will be talked about in the analysis and conclusion section below.
+**Important** -- Note the class imbalance here is the opposite from my original dataset, also, note the very small number of songs. This will be talked about in the analysis and conclusion section below.
 
 **Best F1: 0.615**
 
-#  Analysis and Conclusion
+#  Analysis and Recommendations
+
+- Random forest performed the best, and this makes sense. From the distributions of data seen in the EDA notebook, it is evident that there is some noisy data with large outliers. But, tree algorithms handle this well. This explains why the trees and forests did better than logistic regression. 
+- From the results of the rap modeling notebook, it would appear that the model is quite good (a .82 F1-Score seems pretty powerful in predicting whether a song is popular!). However, this is not truly the case
+- From Spotify's API page, popularity has a unique algorithm applied to it that is time sensitive. Essentially, it is a *function of amount of plays compared to how recent those plays were.*
+- Because of this, songs tend to lose popularity with time (unless they truly are a banger...but even then, they would still lose popularity!)
+- This also explains the difference in class imbalance for my large dataset initially gathered as compared to the release radar set. (As a reminder, the original set had twice as many unpopular songs, whereas the release radar set had twice as many popular songs!?) Items on the release radar set are very, very new, and so songs that might not even be that good can have an inflated popularity score since the plays are so recent. For all we know, they could fall out of popularity within weeks! 
+- **Recommendation to Rap Artists**: Putting the issue of time aside, I recommend tuning your songs to the feature importance and correlation shown above. (1) Make sure I can dance to your song. (2) Do not let profane words get in the way of your rap, people seem to enjoy that grit. (3) From the random foreet model, it appears energy is a huge factor in determining popularity. Try tweaking the energy level of your song and testing the results against the model -- it is likely to have a large effect on popularity.
 
 #  Next Steps
 
+- To make the model better at prediction, I would need to add some feature to my dataset that captures the release date and then represents that in "days_old", "months_old", or something similar. I could then compare this to the popularity of songs to get some linear regression coefficient, and store that coefficient as a feature. This would be in the effort to take the time series nature of popularity into consideration, in the hopes that the model would predict popularity better for new/old songs.
+- From an ETL perspective, I would like to clean up my database, and make it more relational in nature. I would like an artists table, and albums table, and a songs table.
+- Again, from an ETL perspective, I would like to make my python scripts more generic in nature, such that I do not have to read in a .pickle file of song_ids, but can instead run it more ad-hoc for different inputs.
 
 
 
