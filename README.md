@@ -37,7 +37,31 @@ The following chart shows feature importance from the perspective of the random 
 ![Image](pics/random_forest_feature_imp.png?raw=true)
 
 **The results of all models are shown below**
+Accuracy - Top left
+F1-Score - Top right
+Recall - Bottom left
+Precision - Bottom right
+
+**Best F1: 0.82**
 
 ![Image](pics/model_performance.png?raw=true)
+
+#  Test on Spotify Release Radar (Very New Songs)
+
+I grabbed data from one of Spotify's release radar playlists, and then segmented that into rap only by the same criteria I did in my EDA notebook. Once split out, the set had the following distribution of the target variable, popular:
+
+![Image](pics/release_radar_pop_count.png?raw=true)
+
+**Important** -- Note the class imbalance here is the opposite from my original dataset. This will be talked about in the analysis and conclusion section below.
+
+**Best F1: 0.615**
+
+#  Analysis and Conclusion
+
+#  Next Steps
+
+
+
+
 
 
