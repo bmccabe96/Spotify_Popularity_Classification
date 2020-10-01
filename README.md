@@ -9,6 +9,9 @@ Items of note in this repository include:
   * **Spotify_EDA.ipynb**: Initial analysis of dataset, visualizations, some feature engineering, separated out rap songs from all songs
   * **Rap_Modeling.ipynb**: Handles class imbalance and then proceeds into various models
   * **Rap_Release_Radar_Test.ipynb**: Tests best model on new rap songs from Spotify's release radar playlist
+  
+  [Link to Google Slides for Project](https://docs.google.com/presentation/d/1MD19-u5ANp-Dy6PiFXbOeSaIIbv-AZ4LuHoqIdUTws0/edit#slide=id.p)
+  
 
 #  EDA and Visualization 
 
