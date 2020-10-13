@@ -15,7 +15,7 @@ Items of note in this repository include:
 
 #  EDA and Visualization 
 
-After learning and organizing the data, the first thing I wanted to check was class imbalance. The following chart shows our rap songs, where 1 represents a popular song and 2 represents an unpopular song
+After learning and organizing the data, the first thing I wanted to check was class imbalance. The following chart shows our rap songs, where 1 represents a popular song and 0 represents an unpopular song
 
 ![Image](pics/orig_pop_count_rap.png?raw=true)
 
